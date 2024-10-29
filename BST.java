@@ -59,6 +59,30 @@ public class BST {
 		} 
 	}
 	
+	public void remove(float key) {
+		root = removeKey(root,key);
+	}
+	
+	private TreeNode removeKey(TreeNode node, float key) {
+		if (root == null) {
+			return root;
+		}
+		if (key < root.getKey()) {
+			root.setLeft(removeKey(root.getLeft(), key));
+		}
+		else if (key > root.getKey()) {
+			root.setRight(removeKey(root.getRight(), key));
+		}
+		else {
+			if (root.getLeft() == null) {
+				return root.getRight();
+			}
+			else if (root.getRight() == null) {
+				return root.getLeft();
+			}
+		}
+	}
+	
 	 public void inOrderTraversal() {
 	        inOrderTraversal(root);
 	    }
