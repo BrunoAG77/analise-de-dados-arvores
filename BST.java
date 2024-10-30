@@ -63,35 +63,49 @@ public class BST {
 		root = removeKey(root,key);
 	}
 	
-	private TreeNode removeKey(TreeNode node, float key) {
-		if (root == null) {
-			return root;
-		}
+	private TreeNode removeKey(TreeNode root, float key) {
+		if (root == null) return null;
 		if (key < root.getKey()) {
 			root.setLeft(removeKey(root.getLeft(), key));
-		}
+		} 
 		else if (key > root.getKey()) {
 			root.setRight(removeKey(root.getRight(), key));
-		}
+		} 
 		else {
-			if (root.getLeft() == null) {
+			if (root.getLeft() == null && root.getRight() == null) {
+				return null;
+			}
+			else if (root.getLeft() == null) {
 				return root.getRight();
 			}
 			else if (root.getRight() == null) {
 				return root.getLeft();
 			}
+			else {
+				float min = findMin(root.getRight());
+				root.setKey(min);
+				root.setRight(removeKey(root.getRight(), min));
+			}
 		}
+		return root;
 	}
 	
-	 public void inOrderTraversal() {
-	        inOrderTraversal(root);
+	private float findMin(TreeNode node) {
+		while (node.getLeft() != null) {
+			node = node.getLeft();
+		}
+		return node.getKey();
+	}
+	
+	 public void inOrder() {
+	        inOrder(root);
 	    }
 
-	 private void inOrderTraversal(TreeNode node) {
+	 private void inOrder(TreeNode node) {
 	        if (node != null) {
-	            inOrderTraversal(node.getLeft());
+	            inOrder(node.getLeft());
 	            System.out.print(node.getKey() + " ");
-	            inOrderTraversal(node.getRight());
+	            inOrder(node.getRight());
 	        }
 	 }
 }
