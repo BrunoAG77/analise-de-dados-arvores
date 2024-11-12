@@ -1,57 +1,89 @@
 package apl2_ed2;
 
+import java.io.*;
+
 public class BST {
 	private TreeNode root;
-	private TreeNode left;
-	private TreeNode right;
+
+    public void loadCSV(String filePath) {
+        String line;
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(";");
+                int year = Integer.parseInt(values[1]);
+                int id_dir = Integer.parseInt(values[2]);
+                String nm_dir = values[3].trim();
+                float apr1 = Float.parseFloat(values[4]);
+                float rep1 = Float.parseFloat(values[5]);
+                float aba1 = Float.parseFloat(values[6]);
+                float apr2 = Float.parseFloat(values[7]);
+                float rep2 = Float.parseFloat(values[8]);
+                float aba2 = Float.parseFloat(values[9]);
+                float apr3 = Float.parseFloat(values[10]);
+                float rep3 = Float.parseFloat(values[11]);
+                float aba3 = Float.parseFloat(values[12]);
+                insert(year, id_dir, nm_dir, apr1, rep1, aba1, apr2, rep2, aba2, apr3, rep3, aba3);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Erro ao converter dados do CSV: " + e.getMessage());
+        }
+    }
+
+    public void insert(int year, int id_dir, String nm_dir, float apr1, float rep1, float aba1, float apr2, float rep2, float aba2, float apr3, float rep3, float aba3) {
+        TreeNode newNode = new TreeNode(year, id_dir, nm_dir, apr1, rep1, aba1, apr2, rep2, aba2, apr3, rep3, aba3);
+        if (root == null) {
+            root = newNode;
+        } else {
+            insertNode(root, newNode);
+        }
+    }
+
+    private void insertNode(TreeNode current, TreeNode newNode) {
+        if (newNode.getCd() < current.getCd()) {
+            if (current.getLeft() == null) {
+                current.setLeft(newNode);
+            } else {
+                insertNode(current.getLeft(), newNode);
+            }
+        } else if (newNode.getCd() > current.getCd()) {
+            if (current.getRight() == null) {
+                current.setRight(newNode);
+            } else {
+                insertNode(current.getRight(), newNode);
+            }
+        }
+        else if (newNode.getCd() == current.getCd() && newNode.getYear() != current.getYear()) {
+        }
+    }
 	
-	public BST() {
-		left = right = null;
+	public void search(int key) {
+		System.out.println("Ano: " + root.getYear() +
+				   ", ID Diretoria: " + searchKey(root, key) +
+                   ", Nome Diretoria: " + root.getNmDir() +
+                   ", Anos: " + root.getYear() +
+                   ", APR_1: " + root.getApr1() +
+                   ", REP_1: " + root.getRep1() +
+                   ", ABA_1: " + root.getAba1() +
+                   ", APR_2: " + root.getApr2() +
+                   ", REP_2: " + root.getRep2() +
+                   ", ABA_2: " + root.getAba2() +
+                   ", APR_3: " + root.getApr3() +
+                   ", REP_3: " + root.getRep3() +
+                   ", ABA_3: " + root.getAba3());
 	}
 	
-	public void insert(float key) {
-		if (root == null) {
-			root = new TreeNode(key);
-		}
-		else {
-			createTree(root, key);
-		}
-	}
-	
-	private void createTree(TreeNode root, float key) {
-		if (root == null) { 
-			System.out.println("A árvore não foi criada ainda."); 
-		} 
-		else if (key < root.getKey()) {
-			if (root.getLeft() == null) {
-				root.setLeft(new TreeNode(key));
-			}
-			else {
-				createTree(root.getLeft(), key); 
-			}
-		} 
-		else if (key > root.getKey()) { 
-			if (root.getRight() == null) {
-				root.setRight(new TreeNode(key));; 
-			}
-			else {
-				createTree(root.getRight(), key);
-			}
-		} 
-	} 
-	
-	public void search(float key) {
-		System.out.println(searchKey(root, key));
-	}
-	
-	private float searchKey(TreeNode node, float key) { 
+	private int searchKey(TreeNode node, int key) { 
 		if (node == null) { 
-			return 0.0f; 
+			return 0; 
 		} 
-		else if (key == node.getKey()) {
-			return node.getKey();
+		else if (key == node.getCd()) {
+			return node.getCd();
 		} 
-		else if (key < node.getKey()) { 
+		else if (key < node.getCd()) { 
 			return searchKey(node.getLeft(), key); 
 		} 
 		else { 
@@ -59,16 +91,16 @@ public class BST {
 		} 
 	}
 	
-	public void remove(float key) {
+	public void remove(int key) {
 		root = removeKey(root,key);
 	}
 	
-	private TreeNode removeKey(TreeNode root, float key) {
+	private TreeNode removeKey(TreeNode root, int key) {
 		if (root == null) return null;
-		if (key < root.getKey()) {
+		if (key < root.getCd()) {
 			root.setLeft(removeKey(root.getLeft(), key));
 		} 
-		else if (key > root.getKey()) {
+		else if (key > root.getCd()) {
 			root.setRight(removeKey(root.getRight(), key));
 		} 
 		else {
@@ -82,7 +114,7 @@ public class BST {
 				return root.getLeft();
 			}
 			else {
-				float min = findMin(root.getRight());
+				int min = findMin(root.getRight());
 				root.setKey(min);
 				root.setRight(removeKey(root.getRight(), min));
 			}
@@ -90,22 +122,34 @@ public class BST {
 		return root;
 	}
 	
-	private float findMin(TreeNode node) {
+	private int findMin(TreeNode node) {
 		while (node.getLeft() != null) {
 			node = node.getLeft();
 		}
-		return node.getKey();
+		return node.getCd();
 	}
 	
-	 public void inOrder() {
-	        inOrder(root);
-	    }
+	public void preOrder() {
+	    preOrder(root);
+	}
 
-	 private void inOrder(TreeNode node) {
-	        if (node != null) {
-	            inOrder(node.getLeft());
-	            System.out.print(node.getKey() + " ");
-	            inOrder(node.getRight());
-	        }
-	 }
+	private void preOrder(TreeNode node) {
+	    if (node != null) {
+	        System.out.println("Ano: " + node.getYear() +
+	        				   ", ID Diretoria: " + node.getCd() +
+	                           ", Nome Diretoria: " + node.getNmDir() +
+	                           ", Anos: " + node.getYear() +
+	                           ", APR_1: " + node.getApr1() +
+	                           ", REP_1: " + node.getRep1() +
+	                           ", ABA_1: " + node.getAba1() +
+	                           ", APR_2: " + node.getApr2() +
+	                           ", REP_2: " + node.getRep2() +
+	                           ", ABA_2: " + node.getAba2() +
+	                           ", APR_3: " + node.getApr3() +
+	                           ", REP_3: " + node.getRep3() +
+	                           ", ABA_3: " + node.getAba3());
+	        preOrder(node.getLeft());
+	        preOrder(node.getRight());
+	    }
+	}
 }
