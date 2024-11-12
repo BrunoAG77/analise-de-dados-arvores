@@ -1,26 +1,20 @@
 package apl2_ed2;
 
+import java.io.*;
+
 public class Main {
 	public static void main(String[] args) {
 		BST tree = new BST();
-        	tree.insert(5.0f);
-        	tree.insert(3.0f);
-        	tree.insert(7.0f);
-        	tree.insert(2.0f);
-        	tree.insert(4.0f);
-        	tree.insert(6.0f);
-        	tree.insert(8.0f);
-        	tree.search(4.0f);
-        	System.out.println("Antes:");
-        	tree.inOrder();
-        	tree.remove(5.0f);
-        	System.out.println("\nDepois:");
-        	tree.inOrder();
-        	tree.remove(8.0f);
-        	System.out.println("\nDepois:");
-        	tree.inOrder();
-        	tree.remove(2.0f);
-        	System.out.println("\nDepois:");
-		tree.inOrder();
+        String filepath = "df_ide_por_diretoria1.csv";
+        tree.loadCSV(filepath);
+        System.out.println("\nInserção na BST:");
+        tree.preOrder();
+        System.out.println("\nBusca na BST:");
+        tree.search(10101);
+        tree.remove(10101);
+        tree.remove(10102);
+        tree.remove(10104);
+        System.out.println("\nRemoção na BST:");
+        tree.preOrder();
 	}
 }
