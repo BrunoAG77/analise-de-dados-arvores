@@ -106,86 +106,86 @@ public class Main {
 					}
 					
 					else if (opcao.equals("5")) {
-						System.out.println("Média de aprovação: " + bstt.calcularMediaAprovacao());
+						bstt.calcularMediaAprovacao();
 					}
 					
 					else if (opcao.equals("6")) {
-						System.out.println("Média de reprovação: " + bstt.calcularMediaReprovacao());
+						bstt.calcularMediaReprovacao();
 					}
 					
 					else if (opcao.equals("7")) {
-						System.out.println("Média de abandono: " + bstt.calcularMediaAbandono());
+						bstt.calcularMediaAbandono();
 					}
 					
 					else if (opcao.equals("8")) {
 						List<TreeNode> maxApr1 = bstt.getTopNMax(5, "APR_1");
-						System.out.println("Top 5 maiores valores para APR_1:");
+						System.out.println("Top 5 maiores valores de aprovação para o ensino infantil (APR_1):");
 						bstt.printNodes(maxApr1);
 						List<TreeNode> maxApr2 = bstt.getTopNMax(5, "APR_2");
-						System.out.println("\nTop 5 maiores valores para APR_2:");
+						System.out.println("\nTop 5 maiores valores de reprovação para o ensino fundamental (APR_2):");
 						bstt.printNodes(maxApr2);
 						List<TreeNode> maxApr3 = bstt.getTopNMax(5, "APR_3");
-						System.out.println("\nTop 5 maiores valores para APR_3:");
+						System.out.println("\nTop 5 maiores valores de abandono para o ensino médio (APR_3):");
 						bstt.printNodes(maxApr3);
 					}
 					
 					else if (opcao.equals("9")) {
 						List<TreeNode> maxRep1 = bstt.getTopNMax(5, "REP_1");
-						System.out.println("Top 5 maiores valores para REP_1:");
+						System.out.println("Top 5 maiores valores de reprovação para o ensino infantil (REP_1):");
 						bstt.printNodes(maxRep1);
 						List<TreeNode> maxRep2 = bstt.getTopNMax(5, "REP_2");
-						System.out.println("\nTop 5 maiores valores para REP_2:");
+						System.out.println("\nTop 5 maiores valores de reprovação para o ensino fundamental (REP_2):");
 						bstt.printNodes(maxRep2);
 						List<TreeNode> maxRep3 = bstt.getTopNMax(5, "REP_3");
-						System.out.println("\nTop 5 maiores valores para REP_3:");
+						System.out.println("\nTop 5 maiores valores de abandono para o ensino médio (REP_3):");
 						bstt.printNodes(maxRep3);
 					}
 					
 					else if (opcao.equals("10")) {
 						List<TreeNode> maxAba1 = bstt.getTopNMax(5, "ABA_1");
-						System.out.println("Top 5 maiores valores para APR_1:");
+						System.out.println("Top 5 maiores valores de abandono para o ensino infantil (APR_1):");
 						bstt.printNodes(maxAba1);
 						List<TreeNode> maxAba2 = bstt.getTopNMax(5, "ABA_2");
-						System.out.println("\nTop 5 maiores valores para APR_2:");
+						System.out.println("\nTop 5 maiores valores de abandono para o ensino fundamental (APR_2):");
 						bstt.printNodes(maxAba2);
 						List<TreeNode> maxAba3 = bstt.getTopNMax(5, "ABA_3");
-						System.out.println("\nTop 5 maiores valores para ABA_3:");
+						System.out.println("\nTop 5 maiores valores de abandono para o ensino médio (ABA_3):");
 						bstt.printNodes(maxAba3);
 					}
 					
 					else if (opcao.equals("11")) {
 						List<TreeNode> minApr1 = bstt.getTopNMin(5, "APR_1");
-						System.out.println("Top 5 menores valores para APR_1:");
+						System.out.println("Top 5 menores valores de aprovação para o ensino infantil (APR_1):");
 						bstt.printNodes(minApr1);
 						List<TreeNode> minApr2 = bstt.getTopNMin(5, "APR_2");
-						System.out.println("\nTop 5 menores valores para APR_2:");
+						System.out.println("\nTop 5 menores valores de aprovação para o ensino fundamental (APR_2):");
 						bstt.printNodes(minApr2);
 						List<TreeNode> minApr3 = bstt.getTopNMin(5, "APR_3");
-						System.out.println("\nTop 5 menores valores para APR_3:");
+						System.out.println("\nTop 5 menores valores de aprovação para o ensino médio (APR_3):");
 						bstt.printNodes(minApr3);
 					}
 					
 					else if (opcao.equals("12")) {
 						List<TreeNode> minRep1 = bstt.getTopNMin(5, "REP_1");
-						System.out.println("Top 5 menores valores para REP_1:");
+						System.out.println("Top 5 menores valores de reprovação para o ensino infantil (REP_1):");
 						bstt.printNodes(minRep1);
 						List<TreeNode> minRep2 = bstt.getTopNMin(5, "REP_2");
-						System.out.println("\nTop 5 menores valores para REP_2:");
+						System.out.println("\nTop 5 menores valores de reprovação para o ensino fundamental (REP_2):");
 						bstt.printNodes(minRep2);
 						List<TreeNode> minRep3 = bstt.getTopNMin(5, "REP_3");
-						System.out.println("\nTop 5 menores valores para REP_3:");
+						System.out.println("\nTop 5 menores valores de reprovação para o ensino médio (REP_3):");
 						bstt.printNodes(minRep3);
 					}
 					
 					else if (opcao.equals("13")) {
 						List<TreeNode> minAba1 = bstt.getTopNMin(5, "ABA_1");
-						System.out.println("Top 5 menores valores para ABA_1:");
+						System.out.println("Top 5 menores valores de abandono para o ensino infantil (ABA_1):");
 						bstt.printNodes(minAba1);
 						List<TreeNode> minAba2 = bstt.getTopNMin(5, "ABA_2");
-						System.out.println("\nTop 5 menores valores para ABA_2:");
+						System.out.println("\nTop 5 menores valores de abandono para o ensino fundamental (ABA_2):");
 						bstt.printNodes(minAba2);
 						List<TreeNode> minAba3 = bstt.getTopNMin(5, "ABA_3");
-						System.out.println("\nTop 5 menores valores para ABA_3:");
+						System.out.println("\nTop 5 menores valores de abandono para o ensino médio (ABA_3):");
 						bstt.printNodes(minAba3);
 					}
 
@@ -285,86 +285,86 @@ public class Main {
 					}
 					
 					else if (opcao.equals("5")) {
-						System.out.println("Média de aprovação:" + avlt.calcularMediaAprovacao());
+						avlt.calcularMediaAprovacao();
 					}
 					
 					else if (opcao.equals("6")) {
-						System.out.println("Média de reprovação:" + avlt.calcularMediaReprovacao());
+						avlt.calcularMediaReprovacao();
 					}
 					
 					else if (opcao.equals("7")) {
-						System.out.println("Média de abandono:" + avlt.calcularMediaAbandono());
+						avlt.calcularMediaAbandono();
 					}
 
 					else if (opcao.equals("8")) {
 						List<TreeNode> maxApr1 = avlt.getTopNMax(5, "APR_1");
-						System.out.println("Top 5 maiores valores para APR_1:");
+						System.out.println("Top 5 maiores valores de aprovação para o ensino infantil (APR_1):");
 						avlt.printNodes(maxApr1);
 						List<TreeNode> maxApr2 = avlt.getTopNMax(5, "APR_2");
-						System.out.println("\nTop 5 maiores valores para APR_2:");
+						System.out.println("\nTop 5 maiores valores de aprovação para o ensino fundamental (APR_2):");
 						avlt.printNodes(maxApr2);
 						List<TreeNode> maxApr3 = avlt.getTopNMax(5, "APR_3");
-						System.out.println("\nTop 5 maiores valores para APR_3:");
+						System.out.println("\nTop 5 maiores valores de aprovação para o ensino médio (APR_3):");
 						avlt.printNodes(maxApr3);
 					}
 					
 					else if (opcao.equals("9")) {
 						List<TreeNode> maxRep1 = avlt.getTopNMax(5, "REP_1");
-						System.out.println("Top 5 maiores valores para REP_1:");
+						System.out.println("Top 5 maiores valores de reprovação para o ensino infantil (REP_1):");
 						avlt.printNodes(maxRep1);
 						List<TreeNode> maxRep2 = avlt.getTopNMax(5, "REP_2");
-						System.out.println("\nTop 5 maiores valores para REP_2:");
+						System.out.println("\nTop 5 maiores valores de reprovação para o ensino fundamental (REP_2):");
 						avlt.printNodes(maxRep2);
 						List<TreeNode> maxRep3 = avlt.getTopNMax(5, "REP_3");
-						System.out.println("\nTop 5 maiores valores para REP_3:");
+						System.out.println("\nTop 5 maiores valores de reprovação para o ensino médio (REP_3):");
 						avlt.printNodes(maxRep3);
 					}
 					
 					else if (opcao.equals("10")) {
 						List<TreeNode> maxAba1 = avlt.getTopNMax(5, "ABA_1");
-						System.out.println("Top 5 maiores valores para APR_1:");
+						System.out.println("Top 5 maiores valores de abandono para o ensino infantil (APR_1):");
 						avlt.printNodes(maxAba1);
 						List<TreeNode> maxAba2 = avlt.getTopNMax(5, "ABA_2");
-						System.out.println("\nTop 5 maiores valores para APR_2:");
+						System.out.println("\nTop 5 maiores valores de abandono para o ensino fundamental (APR_2):");
 						avlt.printNodes(maxAba2);
 						List<TreeNode> maxAba3 = avlt.getTopNMax(5, "ABA_3");
-						System.out.println("\nTop 5 maiores valores para ABA_3:");
+						System.out.println("\nTop 5 maiores valores de abandono para o ensino médio (ABA_3):");
 						avlt.printNodes(maxAba3);
 					}
 					
 					else if (opcao.equals("11")) {
 						List<TreeNode> minApr1 = avlt.getTopNMin(5, "APR_1");
-						System.out.println("Top 5 menores valores para APR_1:");
+						System.out.println("Top 5 menores valores de aprovação para o ensino infantil (APR_1):");
 						avlt.printNodes(minApr1);
 						List<TreeNode> minApr2 = avlt.getTopNMin(5, "APR_2");
-						System.out.println("\nTop 5 menores valores para APR_2:");
+						System.out.println("\nTop 5 menores valores de aprovação para o ensino fundamental (APR_2):");
 						avlt.printNodes(minApr2);
 						List<TreeNode> minApr3 = avlt.getTopNMin(5, "APR_3");
-						System.out.println("\nTop 5 menores valores para APR_3:");
+						System.out.println("\nTop 5 menores valores de aprovação para o ensino médio (APR_3):");
 						avlt.printNodes(minApr3);
 					}
 					
 					else if (opcao.equals("12")) {
 						List<TreeNode> minRep1 = avlt.getTopNMin(5, "REP_1");
-						System.out.println("Top 5 menores valores para REP_1:");
+						System.out.println("Top 5 menores valores de reprovação para o ensino infantil (REP_1):");
 						avlt.printNodes(minRep1);
 						List<TreeNode> minRep2 = avlt.getTopNMin(5, "REP_2");
-						System.out.println("\nTop 5 menores valores para REP_2:");
+						System.out.println("\nTop 5 menores valores de reprovação para o ensino fundamental (REP_2):");
 						avlt.printNodes(minRep2);
 						List<TreeNode> minRep3 = avlt.getTopNMin(5, "REP_3");
-						System.out.println("\nTop 5 menores valores para REP_3:");
+						System.out.println("\nTop 5 menores valores de reprovação para o ensino médio (REP_3):");
 						avlt.printNodes(minRep3);
 					}
 					
 					else if (opcao.equals("13")) {
 						List<TreeNode> minAba1 = avlt.getTopNMin(5, "ABA_1");
-						System.out.println("Top 5 menores valores para ABA_1:");
+						System.out.println("Top 5 menores valores de abandono para o ensino infantil (ABA_1):");
 						avlt.printNodes(minAba1);
 						List<TreeNode> minAba2 = avlt.getTopNMin(5, "ABA_2");
-						System.out.println("\nTop 5 menores valores para ABA_2:");
+						System.out.println("\nTop 5 menores valores de abandono para o ensino fundamental (ABA_2):");
 						avlt.printNodes(minAba2);
 						List<TreeNode> minAba3 = avlt.getTopNMin(5, "ABA_3");
-						System.out.println("\nTop 5 menores valores para ABA_3:");
+						System.out.println("\nTop 5 menores valores de abandono para o ensino médio (ABA_3):");
 						avlt.printNodes(minAba3);
 					}
 
