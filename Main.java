@@ -27,7 +27,7 @@ public class Main {
 		        long endTimebst = System.nanoTime();
 		        long timeElapsedbst = endTimebst - startTimebst;
 				System.out.println("Árvore BST carregada com dados do arquivo.");
-				System.out.println("Tempo de Execução: " + timeElapsedbst/1000 + " nanossegundos.");
+				System.out.println("Tempo de Execução: " + timeElapsedbst + " nanossegundos.");
 				while (runningbst) {
 					System.out.println("\nEscolha uma operação:");
 					System.out.println("1 - Inserir");
