@@ -122,10 +122,10 @@ public class Main {
 						System.out.println("Top 5 maiores valores de aprovação para o ensino infantil (APR_1):");
 						bstt.printNodes(maxApr1);
 						List<TreeNode> maxApr2 = bstt.getTopNMax(5, "APR_2");
-						System.out.println("\nTop 5 maiores valores de reprovação para o ensino fundamental (APR_2):");
+						System.out.println("\nTop 5 maiores valores de aprovação para o ensino fundamental (APR_2):");
 						bstt.printNodes(maxApr2);
 						List<TreeNode> maxApr3 = bstt.getTopNMax(5, "APR_3");
-						System.out.println("\nTop 5 maiores valores de abandono para o ensino médio (APR_3):");
+						System.out.println("\nTop 5 maiores valores de aprovação para o ensino médio (APR_3):");
 						bstt.printNodes(maxApr3);
 					}
 					
@@ -137,7 +137,7 @@ public class Main {
 						System.out.println("\nTop 5 maiores valores de reprovação para o ensino fundamental (REP_2):");
 						bstt.printNodes(maxRep2);
 						List<TreeNode> maxRep3 = bstt.getTopNMax(5, "REP_3");
-						System.out.println("\nTop 5 maiores valores de abandono para o ensino médio (REP_3):");
+						System.out.println("\nTop 5 maiores valores de reprovação para o ensino médio (REP_3):");
 						bstt.printNodes(maxRep3);
 					}
 					
