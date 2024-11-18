@@ -123,32 +123,75 @@ public class BST {
 	        preOrder(node.getRight());
 	    }
 	}
-	
-	public float calcularMediaAprovacao() {
-	    float somaAprovacao = 0;
-	    int totalRegistros = 0;
-	    TreeNode current = root;
-	    somaAprovacao += current.getApr1() + current.getApr2() + current.getApr3();
-	    totalRegistros += 3;
-	    return totalRegistros > 0 ? somaAprovacao / totalRegistros : 0;
+
+	public int getUniqueYears() {
+	    List<Integer> yearList = new ArrayList<>();
+	    collectUniqueYears(root, yearList);
+	    return yearList.size();
 	}
 
-	public float calcularMediaReprovacao() {
-	    float somaReprovacao = 0;
+	private void collectUniqueYears(TreeNode node, List<Integer> yearList) {
+	    if (node == null) return;
+	    collectUniqueYears(node.getLeft(), yearList);
+	    if (!yearList.contains(node.getYear())) {
+	        yearList.add(node.getYear());
+	    }
+	    collectUniqueYears(node.getRight(), yearList);
+	}
+
+	
+	public void calcularMediaAprovacao() {
+	    float somaAprovacao = 0, somaApr1 = 0, somaApr2 = 0, somaApr3 = 0;
 	    int totalRegistros = 0;
 	    TreeNode current = root;
-	    somaReprovacao += current.getRep1() + current.getRep2() + current.getRep3();
-	    totalRegistros += 3;
-	    return totalRegistros > 0 ? somaReprovacao / totalRegistros : 0;
+	    somaApr1 += current.getApr1();
+	    somaApr2 += current.getApr2();
+	    somaApr3 += current.getApr3();
+	    totalRegistros += getUniqueYears();
+	    somaAprovacao += (somaApr1 + somaApr2 + somaApr3)/getUniqueYears();
+	    if (totalRegistros > 0) {
+	    	System.out.println("Média de aprovação do Ensino Infantil (APR_1): " + somaApr1);
+	    	System.out.println("Média de aprovação do Ensino Fundamental (APR_2): " + somaApr2);
+	    	System.out.println("Média de aprovação do Ensino Médio (APR_3): " + somaApr3);
+	    	System.out.println("Média de aprovação geral: " + somaAprovacao);
+	    }
+	    else System.out.println(0);
+	}
+
+	public void calcularMediaReprovacao() {
+	    float somaReprovacao = 0, somaRep1 = 0, somaRep2 = 0, somaRep3 = 0;
+	    int totalRegistros = 0;
+	    TreeNode current = root;
+	    somaRep1 += current.getRep1();
+	    somaRep2 += current.getRep2();
+	    somaRep3 += current.getRep3();
+	    totalRegistros += getUniqueYears();
+	    somaReprovacao += (somaRep1 + somaRep2 + somaRep3)/getUniqueYears();
+	    if (totalRegistros > 0) {
+	    	System.out.println("Média de reprovação do Ensino Infantil (REP_1): " + somaRep1);
+	    	System.out.println("Média de reprovação do Ensino Fundamental (REP_2): " + somaRep2);
+	    	System.out.println("Média de reprovação do Ensino Médio (REP_3): " + somaRep3);
+	    	System.out.println("Média de reprovação geral: " + somaReprovacao);
+	    }
+	    else System.out.println(0);
 	}
 	
-	public float calcularMediaAbandono() {
-	    float somaAbandono = 0;
+	public void calcularMediaAbandono() {
+	    float somaAbandono = 0, somaAba1 = 0, somaAba2 = 0, somaAba3 = 0;
 	    int totalRegistros = 0;
 	    TreeNode current = root;
-	    somaAbandono += current.getAba1() + current.getAba2() + current.getAba3();
-	    totalRegistros += 3;
-	    return totalRegistros > 0 ? somaAbandono / totalRegistros : 0;
+	    somaAba1 += current.getAba1();
+	    somaAba2 += current.getAba2();
+	    somaAba3 += current.getAba3();
+	    totalRegistros += getUniqueYears();
+	    somaAbandono += (somaAba1 + somaAba2 + somaAba3)/getUniqueYears();
+	    if (totalRegistros > 0) {
+	    	System.out.println("Média de abandono do Ensino Infantil (ABA_1): " + somaAba1);
+	    	System.out.println("Média de abandono do Ensino Fundamental (ABA_2): " + somaAba2);
+	    	System.out.println("Média de abandono do Ensino Médio (ABA_3): " + somaAba3);
+	    	System.out.println("Média de abandono geral: " + somaAbandono);
+	    }
+	    else System.out.println(0);
 	}
 	
 	private void collectNodes(TreeNode node, List<TreeNode> nodes) {
