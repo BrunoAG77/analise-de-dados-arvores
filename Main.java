@@ -143,10 +143,10 @@ public class Main {
 					
 					else if (opcao.equals("10")) {
 						List<TreeNode> maxAba1 = bstt.getTopNMax(5, "ABA_1");
-						System.out.println("Top 5 maiores valores de abandono para o ensino infantil (APR_1):");
+						System.out.println("Top 5 maiores valores de abandono para o ensino infantil (ABA_1):");
 						bstt.printNodes(maxAba1);
 						List<TreeNode> maxAba2 = bstt.getTopNMax(5, "ABA_2");
-						System.out.println("\nTop 5 maiores valores de abandono para o ensino fundamental (APR_2):");
+						System.out.println("\nTop 5 maiores valores de abandono para o ensino fundamental (ABA_2):");
 						bstt.printNodes(maxAba2);
 						List<TreeNode> maxAba3 = bstt.getTopNMax(5, "ABA_3");
 						System.out.println("\nTop 5 maiores valores de abandono para o ensino médio (ABA_3):");
@@ -322,10 +322,10 @@ public class Main {
 					
 					else if (opcao.equals("10")) {
 						List<TreeNode> maxAba1 = avlt.getTopNMax(5, "ABA_1");
-						System.out.println("Top 5 maiores valores de abandono para o ensino infantil (APR_1):");
+						System.out.println("Top 5 maiores valores de abandono para o ensino infantil (ABA_1):");
 						avlt.printNodes(maxAba1);
 						List<TreeNode> maxAba2 = avlt.getTopNMax(5, "ABA_2");
-						System.out.println("\nTop 5 maiores valores de abandono para o ensino fundamental (APR_2):");
+						System.out.println("\nTop 5 maiores valores de abandono para o ensino fundamental (ABA_2):");
 						avlt.printNodes(maxAba2);
 						List<TreeNode> maxAba3 = avlt.getTopNMax(5, "ABA_3");
 						System.out.println("\nTop 5 maiores valores de abandono para o ensino médio (ABA_3):");
