@@ -197,7 +197,7 @@ public class Main {
 					else System.out.println("Escolha inválida. Tente novamente.");
 				}
 			} else if (arvore.equals("AVL")) {
-				System.out.println("Espera de 5 segundos para calcular o tempo de execução da BST.");
+				System.out.println("Espera de 5 segundos para calcular o tempo de execução da AVL.");
 				AVL avlt = new AVL();
 				avlt.loadCSV(filepath);
 				long startTimeavl = System.nanoTime();
