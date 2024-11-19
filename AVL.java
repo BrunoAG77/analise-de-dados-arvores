@@ -282,12 +282,12 @@ public class AVL {
         List<TreeNode> topN = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             TreeNode maxNode = null;
-            float maxValue = Float.NEGATIVE_INFINITY;
+            float minValue = Float.MIN_VALUE;
 
             for (TreeNode node : nodes) {
                 float value = getValueByAttribute(node, attribute);
-                if (value > maxValue && value > 0 && !topN.contains(node)) {
-                    maxValue = value;
+                if (value > minValue && value > 0 && !topN.contains(node)) {
+                    minValue = value;
                     maxNode = node;
                 }
             }
@@ -308,12 +308,12 @@ public class AVL {
         List<TreeNode> topN = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             TreeNode minNode = null;
-            float minValue = Float.POSITIVE_INFINITY;
+            float maxValue = Float.MAX_VALUE;
 
             for (TreeNode node : nodes) {
                 float value = getValueByAttribute(node, attribute);
-                if (value < minValue && value > 0 && !topN.contains(node)) {
-                    minValue = value;
+                if (value < maxValue && value > 0 && !topN.contains(node)) {
+                    maxValue = value;
                     minNode = node;
                 }
             }
